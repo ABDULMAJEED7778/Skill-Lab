@@ -1,0 +1,356 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+
+
+<style>
+
+    .heading{
+        text-align:center;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight:lighter;
+        font-size: large;
+        margin-top: 25px;
+    }
+    .container {
+        position: absolute;
+        top: 200px;
+        left: 600px;
+        width: 300px;
+        height: auto;
+        border: 2px black;
+        border-style: dashed;
+        box-shadow: 2px 2px rgb(116, 116, 117);
+        text-align: center;
+        background-color: rgb(248, 248, 248);
+    }
+
+
+    .fN {
+        margin: 15;
+    }
+
+    .lN {
+        margin: 15;
+    }
+
+    input:focus {
+        background-color: rgb(239, 220, 234);
+        color: rgb(8, 7, 7);
+    }
+
+    button {
+        margin-right: 10;
+        margin-bottom: 15;
+        width: 150px;
+        font-size: medium;
+        font-weight: 900;
+        font-family: serif;
+        transition: 0.5s;
+    }
+
+    .popup .popuptext {
+        visibility: hidden;
+        width: 160px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 60%;
+        left: 50%;
+        margin-left: -80px;
+    }
+
+    .popup2 .popuptext {
+        visibility: hidden;
+        width: 160px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 45%;
+        left: 50%;
+        margin-left: -80px;
+    }
+
+    .popup3 .popuptext {
+        visibility: hidden;
+        width: 160px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 30%;
+        left: 50%;
+        margin-left: -80px;
+    }
+
+    .popup4 .popuptext {
+        visibility: hidden;
+        width: 160px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 20%;
+        left: 50%;
+        margin-left: -80px;
+    }
+
+    .popup .popuptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+    }
+
+    .popup2 .popuptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+    }
+
+    .popup3 .popuptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+    }
+
+    .popup4 .popuptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+    }
+
+
+
+
+    .popup .show ,.popup2 .show ,.popup3 .show , .popup4 .show{
+        visibility: visible;
+        -webkit-animation: fadeIn 1s;
+        animation: fadeIn 1s;
+    }
+
+    @-webkit-keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+</style>
+
+<body>
+    
+    <div class="container">
+        <h2 class="heading">
+            ENTER TWO NUMBERS
+        </h2>
+        <input placeholder="First Number" id="fN" type="number" class="fN">
+        <input type="number" placeholder="Second Number" id="lN" class="lN"><br><br>
+        <div class="popup" onmouseover="factF()">
+            <button onclick="fact()" class="factBtn" id="factBtn">Factorial</button>
+            <span class="popuptext" id="myPopup1"> Shows the factorial of both numbers</span>
+        </div>
+        <div class="popup2" onmouseover="primeF()">
+            <button onclick="prime()" class="primeBtn" id="primeBtn">Prime</button>
+            <span class="popuptext" id="myPopup2"> checks wither two numbers are prime numbers or not</span>
+        </div>
+        <div class="popup3" onmouseover="fibF()">
+            <button onclick="fib()" class="fibBtn" id="fibBtn">Fibonacci</button>
+            <span class="popuptext" id="myPopup3"> Shows all Fibonacci series between the two numbers</span>
+        </div>
+        <div class="popup4" onmouseover="naturalNF()">
+            <button onclick="naturalN()" class="naturalBtn" id="naturalBtn">natural Numbers</button>
+            <span class="popuptext" id="myPopup4"> Shows the natural numbers between the two numbers</span>
+        </div>
+        <p id="result"></p>
+    </div>
+</body>
+
+
+<script>
+
+    function fact() {
+        var a = document.getElementById("fN").value;
+        var b = document.getElementById("lN").value;
+        var fact_1 = 1, fact_2 = 1;
+        for (let i = 1; i <= a; i++) {
+            fact_1 = fact_1 * i;
+        }
+
+        for (let i = 1; i <= b; i++) {
+            fact_2 *= i;
+        }
+
+        alert("The factorial of the first number is " + fact_1 + "\n" +
+            "The factorial of the second number is " + fact_2);
+        document.getElementById("result").innerHTML = "The factorial of the first number is " + fact_1  
+            + "\nThe factorial of the second number is " + fact_2;
+
+
+    }
+
+    function factF() {
+        var popup = document.getElementById("myPopup1");
+        popup.classList.toggle("show");
+
+    }
+
+    function primeF() {
+        var popup = document.getElementById("myPopup2");
+        popup.classList.toggle("show");
+    }
+
+    function fibF() {
+        var popup = document.getElementById("myPopup3");
+        popup.classList.toggle("show");
+    }
+
+    function naturalNF() {
+        var popup = document.getElementById("myPopup4");
+        popup.classList.toggle("show");
+
+    }
+
+
+    function prime() {
+        var a = document.getElementById("fN").value;
+        var b = document.getElementById("lN").value;
+        var flag = 0, flag2 = 0;
+
+
+
+        for (let i = 2; i <= (a / 2); i++) {
+            if (a == 2) {
+                flag = 0;
+                break;
+            }
+            if (a % i == 0) {
+                flag = 1;
+            }
+        }
+
+        for (let i = 2; i <= (b / 2); i++) {
+            if (b == 2) {
+                flag2 = 0;
+                break;
+            }
+            if (b % i == 0) {
+                flag2 = 1;
+            }
+        }
+
+        if (flag == 0 && flag2 == 0) {
+            alert("Both Numbers are prime numbers");
+            document.getElementById("result").innerHTML = "Both Numbers are prime numbers";
+
+        } else if (flag == 0 && flag2 == 1) {
+            alert("the first number is prime number, but the second one is not");
+            document.getElementById("result").innerHTML = "the first number is prime number, but the second one is not";
+
+
+        } else if (flag == 1 && flag2 == 0) {
+            alert("the second number is prime number, but the first one is not");
+            document.getElementById("result").innerHTML = "the second number is prime number, but the first one is not";
+
+            
+        } else {
+            alert("Both Numbers are Not prime numbers");
+            document.getElementById("result").innerHTML = "Both Numbers are Not prime numbers";
+
+
+        }
+    }
+
+
+    function fib() {
+        var a = document.getElementById("fN").value;
+        var b = document.getElementById("lN").value;
+        const fibArray = [];
+        var i = 0;
+        fibArray[0] = 1;
+        fibArray[1] = 1;
+
+        for (i = 2; i <= b; i++) {
+            fibArray[i] = fibArray[i - 1] + fibArray[i - 2];
+        }
+
+        alert("the Fibonacci series from " + a + " to " + b + ": ");
+        
+
+        for (i = 0; i <= b; i++) {
+            if (fibArray[i] >= a) {
+                break;
+            }
+
+        }
+
+
+
+        for (let j = i; fibArray[j] <= b; j++) {
+            alert(fibArray[j] + "\n");
+        }
+
+
+    }
+
+    function naturalN() {
+        var a = document.getElementById("fN").value;
+        var b = document.getElementById("lN").value;
+        alert("The natual numbers from " + a + " to " + b + ":");
+
+        for (var i = a; i <= b; i++) {
+            alert(i + "\n");
+        }
+
+    }
+</script>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    
+    <h1>Enter a Number</h1>
+    <input type="number" min="1" id="text5" style="border-width: 2.5px;" placeholder="enter a positive number"><br><br>
+    <button type="button" onclick="div()"> check</button>
+    <p id="div3"></p>
+    <p id="div4"></p>
+    <p id="div5"></p>
+    <p id="div6"></p>
+    <p id="div7"></p>
+    <p id="div8"></p>
+    <p id="div9"></p>
+    <br><br>
+
+
+</body>
+
+
+
+<script>
+
+function div()  {
+    var a;
+    a = document.getElementById("text5").value;
+
+    if(a % 3 == 0) {
+        document.getElementById("div3").innerHTML = "The number " + a + " is divisible by 3";
+    }else{
+        document.getElementById("div3").innerHTML = "The number " + a + " is Not divisible by 3";
+
+    }
+
+    if(a % 4 == 0) {
+        document.getElementById("div4").innerHTML = "The number " + a + " is divisible by 4";
+    }else{
+        document.getElementById("div4").innerHTML = "The number " + a + " is Not divisible by 4";
+
+    }
+
+    if(a % 5 == 0) {
+        document.getElementById("div5").innerHTML = "The number " + a + " is divisible by 5";
+    }else{
+        document.getElementById("div5").innerHTML = "The number " + a + " is Not divisible by 5";
+    }
+
+    if(a % 6 == 0) {
+        document.getElementById("div6").innerHTML = "The number " + a + " is divisible by 6";
+    }else{
+        document.getElementById("div6").innerHTML = "The number " + a + " is Not divisible by 6";
+
+    }
+
+    if(a % 7 == 0) {
+        document.getElementById("div7").innerHTML = "The number " + a + " is divisible by 7";
+    }else{
+        document.getElementById("div7").innerHTML = "The number " + a + " is Not divisible by 7";
+
+    }
+
+    if(a % 8 == 0) {
+        document.getElementById("div8").innerHTML = "The number " + a + " is divisible by 8";
+    }else{
+        document.getElementById("div8").innerHTML = "The number " + a + " is Not divisible by 8";
+
+    }
+
+    if(a % 9 == 0) {
+        document.getElementById("div9").innerHTML = "The number " + a + " is divisible by 9";
+    }else{
+        document.getElementById("div9").innerHTML = "The number " + a + " is Not divisible by 9";
+    }
+
+}
+
+
+
+
+</script>
+
+</html>

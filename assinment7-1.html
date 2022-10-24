@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    
+    <h1>Factorial of a number</h1>
+    <input type="text" id="text5" style="border-width: 2.5px;">
+    <button type="button" onclick="fact()"> Calculate</button>
+    <p id="demo4"></p>
+    <br><br>
+
+
+</body>
+
+
+
+<script>
+
+function fact()  {
+    var a, facto=1;
+    a = document.getElementById("text5").value;
+
+    for(let i = 1 ; i <= a ; i++) {
+        facto = facto * i;
+    }
+
+    alert("Factorial of " + a + " is " + facto);
+
+    document.getElementById("demo4").innerHTML = "Factorial of " + a + " is " + facto;
+
+
+}
+
+
+
+
+</script>
+
+</html>

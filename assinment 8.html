@@ -1,0 +1,92 @@
+<HTml>
+    <h2>Purchase Details</h2>
+
+    <body>
+
+   <style>
+            table, th, td {
+              border:1px solid black;
+            }
+    </style>
+        
+    <form>
+        <h4>Enter all the below details</h4><br>
+        Item purchased: <input type="text" id="textbox1"><br><br>
+        Quantity: <input type="number" id="textbox2"><br><br>
+        Item Code: <input type="text" id="textbox3"><br><br>
+        Item Price: <input type="number"  id="textbox4"><br><br>
+        <button type="button" onclick="f1()">Submit</button><br><br>
+    </form>
+
+    <table style="width: 100%;">
+        <tr>
+            <td>
+                Item Name
+            </td>
+            <td>
+                Quantity
+            </td>
+            <td>
+                Item Code
+            </td>
+            <td>
+                Item Price
+            </td>
+            <td>
+                Total Price
+            </td>
+        </tr>
+    
+        <tr>
+        <td id="iN"><br>
+            
+        </td>
+        <td id="q">
+            
+        </td>
+        <td id="iC">
+            
+        </td>
+        <td id="iP">
+           
+        </td>
+        <td id="tP">
+            
+        </td>
+
+        </tr>
+        
+        
+    </table>
+
+    <script>
+        function f1() {
+            item = {
+                itemName: document.getElementById("textbox1").value ,
+                qua: document.getElementById("textbox2").value ,
+                code: document.getElementById("textbox3").value ,
+                price: document.getElementById("textbox4").value ,
+            };
+
+            let totalPrice = item.price * item.qua;
+
+            document.getElementById("iN").innerHTML = item.itemName;
+            document.getElementById("q").innerHTML = item.qua;
+            document.getElementById("iC").innerHTML = item.code;
+            document.getElementById("iP").innerHTML = item.price;
+            document.getElementById("tP").innerHTML = totalPrice;
+
+
+
+        }
+
+    </script>
+
+
+</body>
+
+
+    
+
+
+</HTml>
